@@ -6,11 +6,10 @@ using UnityEngine;
 public class UIController : MonoBehaviour
 {
     #region 변수 & 프로퍼티
-    #region Inspector창에서 건드릴 변수들
+    //TMPro UI
     [SerializeField]
     TMPro.TextMeshProUGUI information;
-    #endregion
-
+    
     //싱글턴
     static UIController _instance;
     public static UIController Instance
