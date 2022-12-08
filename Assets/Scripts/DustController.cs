@@ -16,6 +16,7 @@ public class DustController : MonoBehaviour
     private void Start()
     {
         stageController.StageChange += DustOperation;
+        stageController.StageIndex = 0;
     }
     #endregion
     #region Function
