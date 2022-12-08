@@ -5,7 +5,7 @@ using UnityEngine;
 //홀로 렌즈2 공간 스캔 적용 스크립트
 public class SpatialAwarenessController : MonoBehaviour
 {
-    //공간 초기화 프로퍼티 공간 업데이트
+    //공간 업데이트
     public int SpatialAwarenessIndex
     {
         set
@@ -13,7 +13,6 @@ public class SpatialAwarenessController : MonoBehaviour
             SpatialAwarenessUpdate();
         }
     }
-    
     
     void SpatialAwarenessUpdate()
     {

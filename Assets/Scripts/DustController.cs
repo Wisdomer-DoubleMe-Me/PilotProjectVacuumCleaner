@@ -8,6 +8,7 @@ public class DustController : MonoBehaviour
     //콘텐츠 컨트롤러
     [SerializeField]
     StageController stageController;
+    //스테이지 담당 오브젝트
     [SerializeField]
     GameObject[] stages;
     #endregion

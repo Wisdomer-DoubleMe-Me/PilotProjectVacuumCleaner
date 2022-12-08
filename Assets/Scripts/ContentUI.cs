@@ -5,8 +5,10 @@ using UnityEngine;
 public class ContentUI : MonoBehaviour
 {
     #region 변수
+    //콘텐츠 UI 안내 창
     [SerializeField]
     TMPro.TextMeshProUGUI information;
+    //UI 이벤트 호출용
     [SerializeField]
     UIController controller;
     #endregion
