@@ -23,4 +23,4 @@ Add Class Template
 
 Class Template Function
 
-(https://github.com/Wisdomer-DoubleMe-Me/PilotProjectVacuumCleaner/issues/10)
+(https://github.com/Wisdomer-DoubleMe-Me/PilotProjectVacuumCleaner/issues/11)
