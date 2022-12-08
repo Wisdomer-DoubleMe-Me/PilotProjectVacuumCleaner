@@ -7,27 +7,24 @@ public class DustController : MonoBehaviour
     #region Variables and Properties
     //ÄÜÅÙÃ÷ ÄÁÆ®·Ñ·¯
     [SerializeField]
-    ContentsController contentsController;
+    StageController stageController;
+    [SerializeField]
+    GameObject[] stages;
     #endregion
     #region UnityFunction
 
     private void Start()
     {
-        contentsController.ContentsOperation += DustOperation;
+        stageController.StageChange += DustOperation;
     }
     #endregion
     #region Function
     //
     void DustOperation(int contentsIndex)
     {
-        switch (contentsIndex)
+        for(int i = 0; i < stages.Length; i++)
         {
-            case 0:
-
-                break;
-            case 1:
-
-                break;
+            stages[i].gameObject.SetActive(i == contentsIndex);
         }
     }
     #endregion
