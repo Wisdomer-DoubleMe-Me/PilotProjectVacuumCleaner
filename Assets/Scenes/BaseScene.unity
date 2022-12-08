@@ -534,7 +534,7 @@ BoxCollider:
   m_GameObject: {fileID: 91226661}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -550,11 +550,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7beb5cdc43ab65140818252593d5cbd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dustController: {fileID: 0}
   vacuumcollider: {fileID: 91226663}
   onEffect: {fileID: 1593190078}
-  vacuumSound: {fileID: 0}
-  vacuumOrigin: {fileID: 0}
-  dustOrigin: {fileID: 0}
+  vacuumSound: {fileID: 1593190076}
+  vacuumOrigin: {fileID: 201482715}
+  dustOrigin: {fileID: 1876670725}
 --- !u!1 &129395373
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,7 +615,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201482714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4311,6 +4312,7 @@ MonoBehaviour:
   - {fileID: 1413238115}
   - {fileID: 767942989}
   - {fileID: 795153910}
+  dusts: []
 --- !u!1001 &685924962
 PrefabInstance:
   m_ObjectHideFlags: 0

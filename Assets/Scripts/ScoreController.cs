@@ -5,8 +5,10 @@ using UnityEngine;
 public class ScoreController : MonoBehaviour
 {
     #region 변수, 프로퍼티
+    int score;
     public int Score
     {
+        get => score;
         set
         {
             ScoreChange?.Invoke(value);

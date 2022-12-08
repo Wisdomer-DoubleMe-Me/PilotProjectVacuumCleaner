@@ -6,15 +6,22 @@ public class VacuumCleaner : MonoBehaviour
 {
 
     #region 변수, 프로퍼티
+    //먼지 컨트롤러
+    [SerializeField]
+    DustController dustController;
+    //먼지 흡수 이벤트
     [SerializeField]
     Collider vacuumcollider;
+    //먼지 흡수 이펙트
     [SerializeField]
     ParticleSystem onEffect;
+    //먼지 흡수 소리
     [SerializeField]
     AudioSource vacuumSound;
+
     [SerializeField]
     Transform vacuumOrigin, dustOrigin;
-
+    //켜진 상태
     public bool State
     {
         set
@@ -47,6 +54,5 @@ public class VacuumCleaner : MonoBehaviour
             }
         }
     }
-
     #endregion
 }
