@@ -4,17 +4,23 @@ using UnityEngine;
 //진공 청소기
 public class VacuumCleaner : MonoBehaviour
 {
-
     #region 변수, 프로퍼티
+    //먼지 컨트롤러
+    [SerializeField]
+    DustController dustController;
+    //먼지 흡수 이벤트
     [SerializeField]
     Collider vacuumcollider;
+    //먼지 흡수 이펙트
     [SerializeField]
     ParticleSystem onEffect;
+    //먼지 흡수 소리
     [SerializeField]
     AudioSource vacuumSound;
+    //진공, 먼지 위치 확인
     [SerializeField]
     Transform vacuumOrigin, dustOrigin;
-
+    //켜진 상태
     public bool State
     {
         set
@@ -44,9 +50,9 @@ public class VacuumCleaner : MonoBehaviour
             if(Vector3.Distance(other.transform.position, vacuumOrigin.position) < 0.01f)
             {
                 other.gameObject.SetActive(false);
+                dustController.DustAction = other.gameObject;
             }
         }
     }
-
     #endregion
 }

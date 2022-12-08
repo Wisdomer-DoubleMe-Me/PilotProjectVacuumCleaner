@@ -13,13 +13,12 @@ public class SpatialAwarenessController : MonoBehaviour
             SpatialAwarenessUpdate();
         }
     }
-    
+    //스캔 공간 정보 업데이트
     void SpatialAwarenessUpdate()
     {
         CoreServices.SpatialAwarenessSystem?.Update();
     }
-
-
+    //
     private void OnDisable()
     {
         CoreServices.SpatialAwarenessSystem?.Dispose();

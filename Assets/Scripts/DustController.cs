@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 //먼지 컨트롤러
 public class DustController : MonoBehaviour
@@ -11,23 +12,65 @@ public class DustController : MonoBehaviour
     //스테이지 담당 오브젝트
     [SerializeField]
     GameObject[] stages;
+    //먼지 탐지 확인
+    [SerializeField]
+    Transform dustOrigin;
+    //먼지 오브젝트들
+    [SerializeField]
+    List<GameObject> dustObject = new List<GameObject> ();
+    //
+    [SerializeField]
+    ScoreController scoreController;
+    
+    public GameObject DustAction
+    {
+        set
+        {
+            GameObject dust = dustObject.Find(dust => dust == value);
+            if(dust != null)
+            {
+                StartCoroutine(DustEnable(dust));
+            }
+        }
+    }
+
     #endregion
     #region UnityFunction
 
-    private void Start()
+    private void Awake()
     {
-        stageController.StageChange += DustOperation;
+        stageController.StageChange += (stageIndex) =>
+        {
+            for (int i = 0; i < stages.Length; i++)
+            {
+                stages[i].gameObject.SetActive(i == stageIndex);
+            }
+        };
         stageController.StageIndex = 0;
+        scoreController.ScoreChange += (score) =>
+        {
+            //먼지 10개 단위라면...?
+            if(score % 10 == 0)
+            {
+
+            }
+        };
+    }
+    private void OnEnable()
+    {
+        dustObject.Clear();
+        for(int i = 0; i< dustOrigin.childCount; i++)
+        {
+            dustObject.Add(dustOrigin.GetChild(i).gameObject);
+        }
     }
     #endregion
     #region Function
-    //
-    void DustOperation(int contentsIndex)
+    IEnumerator DustEnable(GameObject dust)
     {
-        for(int i = 0; i < stages.Length; i++)
-        {
-            stages[i].gameObject.SetActive(i == contentsIndex);
-        }
+        yield return new WaitForSeconds(Random.Range(0.5f, 5f));
+        dust.SetActive(true);
+        yield break;
     }
     #endregion
 }
