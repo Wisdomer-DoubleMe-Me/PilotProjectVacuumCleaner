@@ -72,5 +72,15 @@ public class DustController : MonoBehaviour
         dust.SetActive(true);
         yield break;
     }
+
+    public void ContentsReset()
+    {
+        int buildIndex = UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex;
+        UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(buildIndex);
+    }
+    public void ContentsExit()
+    {
+        Application.Quit();
+    }
     #endregion
 }
