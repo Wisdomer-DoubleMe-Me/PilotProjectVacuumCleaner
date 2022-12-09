@@ -11,7 +11,8 @@ public class ScoreController : MonoBehaviour
         get => score;
         set
         {
-            ScoreChange?.Invoke(value);
+            score = value;
+            ScoreChange?.Invoke(score);
         }
     }
     #endregion

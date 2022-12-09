@@ -13,7 +13,8 @@ public class ScoreUI : MonoBehaviour
     //점수 보이는 UI
     [SerializeField]
     TMPro.TextMeshProUGUI scoreExplain, scoreInfo;
-
+    [SerializeField]
+    AudioSource scorePlus;
     
     void Awake()
     {
@@ -26,6 +27,7 @@ public class ScoreUI : MonoBehaviour
             }
             scoreExplain.enabled = scoreInfo.enabled = score > 0;
             scoreInfo.text = score.ToString();
+            scorePlus.Play();
         };
     }
     private void OnEnable()

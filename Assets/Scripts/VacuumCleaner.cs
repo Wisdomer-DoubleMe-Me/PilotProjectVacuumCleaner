@@ -14,31 +14,29 @@ public class VacuumCleaner : MonoBehaviour
     //먼지 흡수 이펙트
     [SerializeField]
     ParticleSystem onEffect;
-    //먼지 흡수 소리
-    [SerializeField]
-    AudioSource vacuumSound;
     //진공, 먼지 위치 확인
     [SerializeField]
     Transform vacuumOrigin, dustOrigin;
+
+    bool state;
     //켜진 상태
     public bool State
     {
+        get => state;
         set
         {
-            vacuumcollider.enabled = value;
-            if (value)
+            state = !state;
+            vacuumcollider.enabled = state;
+            if (state)
             {
                 onEffect.Play();
-                vacuumSound.Play();
             }
             else
             {
                 onEffect.Stop();
-                vacuumSound.Stop();
             }
         }
     }
-
 
     #endregion
     #region 유니티 함수
@@ -46,11 +44,11 @@ public class VacuumCleaner : MonoBehaviour
     {
         if(other.transform.parent == dustOrigin)
         {
-            other.GetComponent<Rigidbody>().velocity = (other.transform.position - vacuumOrigin.position).normalized;
-            if(Vector3.Distance(other.transform.position, vacuumOrigin.position) < 0.01f)
+            other.GetComponent<Rigidbody>().velocity = (vacuumOrigin.position - other.transform.position).normalized;
+            if (Vector3.Distance(other.transform.position, vacuumOrigin.position) < 0.1f)
             {
-                other.gameObject.SetActive(false);
                 dustController.DustAction = other.gameObject;
+                other.gameObject.SetActive(false);
             }
         }
     }
