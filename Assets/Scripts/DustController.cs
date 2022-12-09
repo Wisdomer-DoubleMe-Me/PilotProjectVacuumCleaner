@@ -18,9 +18,7 @@ public class DustController : MonoBehaviour
     //먼지 오브젝트들
     [SerializeField]
     List<GameObject> dustObject = new List<GameObject> ();
-    //
-    [SerializeField]
-    ScoreController scoreController;
+    
     
     public GameObject DustAction
     {
@@ -47,14 +45,6 @@ public class DustController : MonoBehaviour
             }
         };
         stageController.StageIndex = 0;
-        scoreController.ScoreChange += (score) =>
-        {
-            //먼지 10개 단위라면...?
-            if(score % 10 == 0)
-            {
-
-            }
-        };
     }
     private void OnEnable()
     {
